@@ -302,7 +302,7 @@ results."
   (goto-char (point-min))
   (let ((result ""))
     (when (search-forward-regexp "<div[^>]*?class=\"question" nil t)
-      (when (search-forward-regexp "<td class=\"postcell\">" nil t)
+      (when (search-forward-regexp "<div class=\"postcell " nil t)
         (when (search-forward-regexp "<div class=\"post-text\"[^>]*>\\(\\(.*?\n?\\)*\\)</div>" nil t)
           (let ((str (match-string 1)))
             (with-temp-buffer
@@ -322,7 +322,7 @@ results."
   (goto-char (point-min))
   (let ((result '()))
     (while (search-forward-regexp "<div[^>]*?class=\"answer" nil t)
-      (when (search-forward-regexp "<td class=\"answercell\">" nil t)
+      (when (search-forward-regexp "<div class=\"answercell " nil t)
         (when (search-forward-regexp "<div class=\"post-text\".*?>\\(\\(.*?\n?\\)*\\)</div>" nil t)
           (let ((str (match-string 1)))
             (with-temp-buffer
