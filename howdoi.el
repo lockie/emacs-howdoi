@@ -95,6 +95,8 @@
 
 ;;; Code:
 
+(require 'html2text)
+
 (defgroup howdoi nil
   "Instant coding answers via Emacs."
   :group 'extensions
