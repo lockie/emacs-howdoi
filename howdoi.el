@@ -221,7 +221,7 @@ results."
   (setq howdoi-current-question-num 0)
   (setq howdoi-requests-cache (make-hash-table :test 'equal))
   (let ((url-request-method "GET")
-        (url "http://google.com/search")
+        (url "https://www.google.com/search")
         (args (concat "?q="
                       (url-hexify-string "site:stackoverflow.com ")
                       (url-hexify-string query))))
@@ -239,7 +239,7 @@ results."
   (let ((result '()))
     (with-current-buffer buffer
       (goto-char (point-min))
-      (while (search-forward "<h3 class=\"r\">" nil t)
+      (while (search-forward "<div class=\"jfp3ef\">" nil t)
         (when (search-forward-regexp "<a href=\"\\([^\"]*\\)\".*?>" nil t)
           (let ((str (match-string 1)))
             (setq str (nth 1 (split-string str "q=")))
