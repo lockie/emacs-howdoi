@@ -95,8 +95,6 @@
 
 ;;; Code:
 
-(require 'html2text)
-
 (defgroup howdoi nil
   "Instant coding answers via Emacs."
   :group 'extensions
@@ -312,7 +310,7 @@ results."
               (insert str)
               (goto-char (point-min))
               (howdoi-replace-html-ahref-tags)
-              (html2text)
+              (shr-render-region (point-min) (point-max))
               (howdoi-strip-html-tags '("code"))
               (setq result (buffer-substring
                             (point-min)
@@ -332,7 +330,7 @@ results."
               (insert str)
               (goto-char (point-min))
               (howdoi-replace-html-ahref-tags)
-              (html2text)
+              (shr-render-region (point-min) (point-max))
               (howdoi-strip-html-tags '("code"))
               (setq result (append result `(,(buffer-substring (point-min) (point-max))))))))))
     result))
